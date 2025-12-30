@@ -97,3 +97,6 @@ python dags/raw_from_s3_to_pg.py
 * [USGS API Documentation](https://earthquake.usgs.gov/fdsnws/event/1/#methods) — методы API.
 * [USGS Data Format](https://earthquake.usgs.gov/data/comcat/index.php) — описание полей данных.
 * [Apache Airflow Docs](https://airflow.apache.org/docs/) — официальная документация.
+
+
+логи/пароль Airflow - airflow

@@ -1,4 +1,6 @@
-FROM openjdk:19-buster
+#FROM openjdk:19-buster
+
+FROM eclipse-temurin:17-jre-jammy
 
 ENV MB_PLUGINS_DIR=/home/plugins/
 
