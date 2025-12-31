@@ -42,7 +42,7 @@ flowchart LR
     Airflow -->|Load ODS| PG_ODS
     PG_ODS -->|Transform| PG_MART
     PG_MART -->|Analytics| Metabase
-
+```
 
 
 ## 📂 Структура репозитория
