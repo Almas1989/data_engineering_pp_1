@@ -25,30 +25,22 @@
     * `fct_avg_day_earthquake` — средняя магнитуда по дням.
 
 
+## 📊 Data Pipeline Architecture
+
+```mermaid
 flowchart LR
-    %% ========= STYLES =========
-    classDef source fill:#ff7675,stroke:#d63031,stroke-width:2px,color:#ffffff
-    classDef orchestrator fill:#74b9ff,stroke:#0984e3,stroke-width:2px,color:#ffffff
-    classDef raw fill:#ffeaa7,stroke:#fdcb6e,stroke-width:2px,color:#2d3436
-    classDef ods fill:#fab1a0,stroke:#e17055,stroke-width:2px,color:#2d3436
-    classDef mart fill:#55efc4,stroke:#00b894,stroke-width:2px,color:#2d3436
-    classDef viz fill:#81ecec,stroke:#00cec9,stroke-width:2px,color:#2d3436
+    API[USGS Earthquake API]
+    Airflow{{Apache Airflow}}
+    MinIO[(MinIO S3 - Raw JSON)]
+    PG_ODS[(PostgreSQL - ODS)]
+    PG_MART[(PostgreSQL - Data Marts)]
+    Metabase[Metabase BI]
 
-    %% ========= NODES =========
-    API[USGS Earthquake API]:::source
-    Airflow{{Apache Airflow}}:::orchestrator
-
-    MinIO[(MinIO S3<br/>Raw JSON)]:::raw
-    PG_ODS[(PostgreSQL<br/>ODS)]:::ods
-    PG_MART[(PostgreSQL<br/>Data Marts)]:::mart
-    Metabase[Metabase BI]:::viz
-
-    %% ========= FLOWS =========
     API -->|Extract| Airflow
     Airflow -->|Save Raw| MinIO
     MinIO -->|Read Raw| Airflow
     Airflow -->|Load ODS| PG_ODS
-    PG_ODS -->|SQL Transform| PG_MART
+    PG_ODS -->|Transform| PG_MART
     PG_MART -->|Analytics| Metabase
 
 
