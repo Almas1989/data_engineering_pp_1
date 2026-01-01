@@ -100,9 +100,9 @@ flowchart LR
 
 Для локальной разработки и линтинга (опционально):
 
-```bash
-python3.12 -m venv venv && \
-source venv/bin/activate && \
+```PowerShell
+py -m venv venv && \
+venv\Scripts\activate.ps1 && \
 pip install --upgrade pip && \
 pip install -r requirements.txt
 
