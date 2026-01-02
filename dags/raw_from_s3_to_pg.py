@@ -9,7 +9,7 @@ from airflow.operators.python import PythonOperator
 from airflow.sensors.external_task import ExternalTaskSensor
 
 # Конфигурация DAG
-OWNER = "i.korsakov"
+OWNER = "almas.maksutbekov"
 DAG_ID = "raw_from_s3_to_pg"
 
 # Используемые таблицы в DAG
@@ -56,7 +56,7 @@ def get_and_transfer_raw_data_to_ods_pg(**context):
     con = duckdb.connect()
 
     con.sql(
-        f"""
+        f"""--sql
         SET TIMEZONE='UTC';
         INSTALL httpfs;
         LOAD httpfs;
