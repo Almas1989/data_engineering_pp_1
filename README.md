@@ -125,8 +125,8 @@ docker compose up -d
 | --- | --- | --- | --- |
 | **Airflow UI** | `http://localhost:8080` | `airflow` | `airflow` |
 | **MinIO Console** | `http://localhost:9001` | `minioadmin` | `minioadmin` |
-| **Metabase** | `http://localhost:3000` | *(настройка при входе)* | *(настройка при входе)* |
-| **Postgres** | `localhost:5432` | `airflow` | `airflow` |
+| **Metabase** | `http://localhost:3000` | `foo` | `foofoo1` |
+| **Postgres** | `localhost:5432` | `postgres` | `postgres` |
 
 ## ⚙️ Ручной запуск (Dev Mode)
 
@@ -285,3 +285,9 @@ SELECT time::date AS date, avg(mag::float)
 FROM ods.fct_earthquake
 GROUP BY 1 
 ```
+---
+
+
+## Result Dashboard (Metabase)
+
+![Дашборд](./dashbord.png)

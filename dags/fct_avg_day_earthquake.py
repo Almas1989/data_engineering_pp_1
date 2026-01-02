@@ -5,7 +5,7 @@ from airflow.providers.common.sql.operators.sql import SQLExecuteQueryOperator
 from airflow.sensors.external_task import ExternalTaskSensor
 
 # Конфигурация DAG
-OWNER = "i.korsakov"
+OWNER = "almas.maksutbekov"
 DAG_ID = "fct_avg_day_earthquake"
 
 # Используемые таблицы в DAG

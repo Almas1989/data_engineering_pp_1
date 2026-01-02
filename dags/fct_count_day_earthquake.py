@@ -5,7 +5,7 @@ from airflow.providers.common.sql.operators.sql import SQLExecuteQueryOperator
 from airflow.sensors.external_task import ExternalTaskSensor
 
 # Конфигурация DAG
-OWNER = "i.korsakov"
+OWNER = "almas.maksutbekov"
 DAG_ID = "fct_count_day_earthquake"
 
 # Используемые таблицы в DAG
@@ -70,7 +70,7 @@ with DAG(
         task_id="create_stg_table",
         conn_id=PG_CONNECT,
         autocommit=True,
-        sql=f"""
+        sql=f"""--sql
         CREATE TABLE stg."tmp_{TARGET_TABLE}_{{{{ data_interval_start.format('YYYY-MM-DD') }}}}" AS
         SELECT
             time::date AS date,
@@ -87,7 +87,7 @@ with DAG(
         task_id="drop_from_target_table",
         conn_id=PG_CONNECT,
         autocommit=True,
-        sql=f"""
+        sql=f"""--sql
         DELETE FROM {SCHEMA}.{TARGET_TABLE}
         WHERE date IN
         (
