@@ -113,7 +113,7 @@ pip install -r requirements.txt
 Развертывание сервисов в Docker:
 
 ```powershell
-docker compose up --build
+docker compose up -d
 
 ```
 
